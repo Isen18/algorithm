@@ -1,7 +1,5 @@
 package com.isen.base.algorithm.sort;
 
-import java.util.Random;
-
 /**
  * @author Isen
  * @date 2019/2/13 22:37
