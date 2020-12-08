@@ -7,10 +7,19 @@
 // @lc code=start
 class Solution {
     public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
 
+        int tmp = 0;
+        int a = x;
+        while (a > 0) {
+            int b = a % 10;
+            tmp = tmp * 10 + b;
+            a = a / 10;
+        }
+
+        return x == tmp;
     }
 }
 // @lc code=end
-
-[0x7FFB3BF9E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
-[0x7FFB3BF9E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)

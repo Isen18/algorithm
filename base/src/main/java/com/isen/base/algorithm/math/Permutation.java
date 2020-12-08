@@ -32,7 +32,7 @@ public class Permutation {
             return;
         }
 
-        for(int i = 0; i < array.length; ++i){
+        for(int i = k; i < array.length; ++i){
             swap(array, k, i);
             allPermutation(array, k + 1);
             swap(array, k, i);
