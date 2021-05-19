@@ -17,7 +17,10 @@ class Solution {
         Arrays.sort(candidates);
         res = new ArrayList<>();
         List<Integer> tmp = new ArrayList<>();
-        doCombinationSum(candidates, target, tmp);
+        // doCombinationSum(candidates, target, tmp);
+        // doCombinationSum2(candidates, target, 0, tmp);
+
+        doCombinationSum3(candidates, target, 0, tmp);
         return res;
     }
 
@@ -46,6 +49,59 @@ class Solution {
             doCombinationSum(candidates, target - candidates[i], tmp);
             tmp.remove(tmp.size() - 1);
         }
+    }
+
+    private void doCombinationSum2(int[] candidates, int target, int k, List<Integer> tmp) {
+        if (target == 0) {
+            res.add(new ArrayList<>(tmp));
+            return;
+        }
+
+        if (target < 0) {
+            return;
+        }
+        
+        for (int i = k; i < candidates.length; i++) {
+            if (candidates[i] > target) {
+                //>i的值都大于target
+                return;
+            }
+
+            // if (!tmp.isEmpty() && candidates[i] < tmp.get(tmp.size() - 1)) {
+            //     //出现逆序对，则重复
+            //     continue;
+            // }
+
+            tmp.add(candidates[i]);
+            doCombinationSum2(candidates, target - candidates[i], i, tmp);
+            tmp.remove(tmp.size() - 1);
+        }
+    }
+
+    private void doCombinationSum3(int[] candidates, int target, int k, List<Integer> tmp) {
+        if (target == 0) {
+            res.add(new ArrayList<>(tmp));
+            return;
+        }
+
+        if (target < 0) {
+            return;
+        }
+
+        if (k >= candidates.length) {
+            return;
+        }
+        
+        if (candidates[k] > target) {
+            //>k的值都大于target
+            return;
+        }
+
+        tmp.add(candidates[k]);
+        doCombinationSum3(candidates, target - candidates[k], k, tmp);
+        tmp.remove(tmp.size() - 1);
+
+        doCombinationSum3(candidates, target, k + 1, tmp);
     }
 }
 // @lc code=end

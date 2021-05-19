@@ -16,6 +16,7 @@ public class QueueStack {
     public void push(Object object) {
         if (!queue2.isEmpty()) {
             queue2.add(object);
+            return;
         }
 
         queue.add(object);

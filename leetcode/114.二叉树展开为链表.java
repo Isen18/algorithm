@@ -21,6 +21,8 @@
  * }
  */
 class Solution {
+    TreeNode last;
+
     public void flatten(TreeNode root) {
         doFlatten(root);
     }
@@ -31,11 +33,16 @@ class Solution {
         }
 
         //访问root
-        TreeNode right = root.right;
-        root.right = root.left;
+        if (last != null) {
+            last.right = root;
+        }
+        
+        root.left = null;
+        last = root;
         doFlatten(root.left);
         
         doFlatten(root.right);
+        return root;
     }
 }
 // @lc code=end

@@ -32,15 +32,6 @@ class Solution {
                     continue;
                 }
 
-                if (tmp[j] == 0) {
-                    tmp[j] = tmp[j - 1];
-                    continue;
-                }
-
-                if (tmp[j - 1] == 0) {
-                    continue;
-                }
-
                 tmp[j] += tmp[j - 1];
             }
         }

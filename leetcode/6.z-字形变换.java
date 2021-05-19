@@ -7,10 +7,14 @@
 // @lc code=start
 class Solution {
     public String convert(String s, int numRows) {
+        StringBuilder sb = new StringBuilder();
 
+        int colN = s.length() 
+        for (int i = 0, j = 0; i < numRows; i++) {
+
+        }
+
+        return sb.toString();
     }
 }
 // @lc code=end
-
-[0x7FFAE6D9E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)
-[0x7FFAE6D9E0A4] ANOMALY: use of REX.w is meaningless (default operand size is 64)

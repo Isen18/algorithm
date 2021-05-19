@@ -31,7 +31,8 @@ class Solution {
 
     public List<Integer> preorderTraversal(TreeNode root) {
         res = new ArrayList<>();
-        doPreorderTraversal(root);
+        // doPreorderTraversal(root);
+        doPreorderTraversalLoop(root);
 
         return res;
     }
@@ -51,18 +52,19 @@ class Solution {
             return;
         }
 
-        //存父节点
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode p = root;
-        while (p != null || !stack.isEmpty()) {
-            while (p != null) {
-                res.add(p.val);
-                stack.push(p);
-                p = p.left;
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode p = stack.pop();
+            res.add(p.val);
+
+            if (p.right != null) {
+                stack.push(p.right);
             }
 
-            p = stack.pop();
-            p = p.right;
+            if (p.left != null) {
+                stack.push(p.left);
+            }
         }
     }
 }

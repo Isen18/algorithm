@@ -25,19 +25,19 @@ public class MergeLink {
      * @return 合并后的额有序链表
      */
     public static Node mergeLinks(Node[] links) {
-        return partition(links, 0, links.length);
+        return mergeLinks(links, 0, links.length - 1);
     }
 
-    public static Node partition(Node[] links, int start, int end) {
+    public static Node mergeLinks(Node[] links, int start, int end) {
         if (start == end) {
             return links[start];
         }
 
         if (start < end) {
-            int mid = start + end;
-            Node l = partition(links, start, mid);
-            Node l2 = partition(links, mid + 1, end);
-            return mergeRec(l, l2 );
+            int mid = (start + end) >> 1;
+            Node l = mergeLinks(links, start, mid);
+            Node l2 = mergeLinks(links, mid + 1, end);
+            return mergeRec(l, l2);
         }
 
         return null;

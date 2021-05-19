@@ -9,5 +9,11 @@ public class Test {
     System.out.println(random.nextInt(3));
     System.out.println(random.nextInt(3));
     System.out.println(random.nextInt(3));
+
+    System.out.println(Integer.MAX_VALUE);
+    System.out.println(Integer.MAX_VALUE+1);
+    System.out.println(Integer.MIN_VALUE);
+    System.out.println(Integer.MIN_VALUE-1);
+    System.out.println(2147483647 * 10);
   }
 }
